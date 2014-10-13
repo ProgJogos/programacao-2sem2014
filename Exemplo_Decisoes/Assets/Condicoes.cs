@@ -5,29 +5,38 @@ public class Condicoes : MonoBehaviour {
 
 	public bool dia;
 	public bool nublado;
+	// Range limita a interface do editor, criando um slider
+	[Range (0, 23)] public int hora;
 
-	public int varA;
-	public int varB;
+	public bool 
+		madrugada, 
+		manha,
+		tarde,
+		noite;
 	
 	void Update () {
-		// exemplo de negacao (!)
-		// print (dia); // escreve o valor de dia
-		// print (!dia); // escreve o oposto de dia
-
-		// exemplo de operador E (&&)
-		// soh eh verdadeiro 
-		// se os dois sao verdadeiros
+		// print (dia)
+		// print (!dia);
 		// print (dia && nublado);
-
-		// exemplo de operador OU (||)
-		// eh verdadeiro quando dia ou
-		// nublado sao verdadeiros
 		// print (dia || nublado);
+		// print (hora == 12);
+		// print (hora != 12);
+		// print (hora == 12 && nublado);
+		// print (hora >= 0 && hora < 6);
+		madrugada = (hora >= 0 && hora < 6);
+		manha = (hora >= 6 && hora < 12);
+		tarde = (hora >= 12 && hora < 18);
+		noite = (hora >= 18 && hora <= 23);
 		
-		// exemplos de operadores relacionais
-		// print (dia == nublado); // igualdade
-		// print (dia != nublado); // desigualdade
-		// print (varA > varB);
-		print (varA >= varB);
+		// estrutura de decisao: se/if
+		if (tarde) {
+			print ("Boa tarde");
+		}
 	}
 }
+
+
+
+
+
+
