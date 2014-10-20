@@ -9,14 +9,17 @@ public class ExemploLista : MonoBehaviour
 	void Start () 
 	{
 		numeros = new List<int>();
+		
 		numeros.Add (100); 
 		numeros.Add (200);
-		numeros.Remove(100);
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-	
+		print(numeros.Count);
+		
+		numeros.Remove(10);
+		print(numeros.Count);
+		
+		numeros.Add(300);
+		numeros.Insert(1, 150);
+		
+		print(numeros.IndexOf(300));
 	}
 }
