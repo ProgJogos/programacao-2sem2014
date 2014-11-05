@@ -1,4 +1,4 @@
-﻿
+﻿[System.Serializable]
 public class Item
 {
 	// atributos / variaveis
