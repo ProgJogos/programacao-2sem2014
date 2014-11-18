@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class Item 
+public class Item
 {
 	// atributos / variaveis
 	public string nome;
-	private int peso;
+	public int peso;
 	public float preco;
 	
 	// funcao construtora / construtor
@@ -18,6 +18,6 @@ public class Item
 	// metodo / funcao
 	public void Descrever ()
 	{
-		Debug.Log(nome + " pesa " + peso + " e custa " + preco);
+		Debug.Log (nome + " pesa " + peso + " e custa " + preco);
 	}
 }

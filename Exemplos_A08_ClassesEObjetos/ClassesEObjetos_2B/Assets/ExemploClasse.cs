@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections;
 
 // cabecalho de declaracao de classe
-public class ExemploClasse : MonoBehaviour 
+public class ExemploClasse : MonoBehaviour
 {
 	// declaracao de atributos / variaveis
 	public string nome;
@@ -19,6 +19,6 @@ public class ExemploClasse : MonoBehaviour
 	// funcao-evento START
 	void Start ()
 	{
-		Descrever();
+		Descrever ();
 	}
 }
