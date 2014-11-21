@@ -7,7 +7,7 @@ public class Item
 	public int preco;
 
 	// funcao construtora / construtor
-	public Item (string nome, int peso, int preco)
+	public Item(string nome, int peso, int preco)
 	{
 		this.nome = nome;
 		this.peso = peso;
@@ -15,7 +15,7 @@ public class Item
 	}
 
 	// metodo / funcao
-	public string Descrever ()
+	public string Descrever()
 	{
 		return nome + " pesa " + peso + " e custa " + preco;
 	}
