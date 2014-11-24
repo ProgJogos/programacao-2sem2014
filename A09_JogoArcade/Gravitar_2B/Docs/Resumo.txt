@@ -1,0 +1,4 @@
+Gravitar
+========
+
+O objetivo é destruir todos os inimigos sem que o combustível acabe e sem bater na tela ou ser atingido por balas inimigas. Para isso, você se move por várias fases (que você escolhe num mapa geral), usando seu foguete e coletando mais combustível no caminho. Cada fase tem gravidade e objetivos diferentes.
