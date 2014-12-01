@@ -3,9 +3,7 @@ using System.Collections;
 
 public class Bala : MonoBehaviour
 {
-
 	public float tempoDeVida;
-	private bool destruir;
 
 	void Update()
 	{
@@ -15,17 +13,9 @@ public class Bala : MonoBehaviour
 			Destroy(this.gameObject);
 		}
 	}
-	
-	void LateUpdate()
+
+	void OnCollisionEnter2D()
 	{
-		if (destruir)
-		{
-			Destroy(this.gameObject);
-		}
-	}
-	
-	void OnCollisionEnter2D(Collision2D colisao)
-	{
-		destruir = true;
+		Destroy(this.gameObject);
 	}
 }

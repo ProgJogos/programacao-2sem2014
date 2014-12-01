@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Nave : MonoBehaviour 
+public class Nave : MonoBehaviour
 {
 
 	// atributos
-	public int vidas;
+	public static int vidas = 3;
 	public float forcaFoguete;
 	public static int pontos = 0;
 	public float velTiro;
-	public int combustivel;
+	public static int combustivel;
 	public float velGiro;
 	public int taxaConsumo;
 	public GameObject prefabBala;
@@ -18,13 +18,13 @@ public class Nave : MonoBehaviour
 	private float giro;
 	private bool fogueteLigado;
 	
-	void Update () 
+	void Update()
 	{
 		// PEGANDO ENTRADA DO JOGADOR
 		giro = -1 * Input.GetAxis("Horizontal");
 		fogueteLigado = Input.GetKey(KeyCode.Z);
 		
-		if(Input.GetKeyDown(KeyCode.X))
+		if (Input.GetKeyDown(KeyCode.X))
 		{
 			GameObject bala = Instantiate(
 				prefabBala,
@@ -34,25 +34,34 @@ public class Nave : MonoBehaviour
 		}
 	}
 	
-	void FixedUpdate () 
+	void FixedUpdate()
 	{
 		rigidbody2D.angularVelocity = giro * velGiro;
-		if(fogueteLigado && combustivel > 0) 
+		if (fogueteLigado && combustivel > 0)
 		{
 			rigidbody2D.AddForce(transform.right * forcaFoguete);
 			combustivel -= taxaConsumo;
 		}
 	}
 	
-	void LateUpdate () 
+	void LateUpdate()
 	{
-		if(destruir) 
+		if (destruir)
 		{
 			Destroy(this.gameObject);
+			vidas--;
+			if (vidas == 0)
+			{
+				Arbitro.TerminarJogo();
+			} else
+			{
+				Arbitro.RenascerNave();
+			}
+			
 		}
 	}
 	
-	void OnCollisionEnter2D (Collision2D colisao)
+	void OnCollisionEnter2D(Collision2D colisao)
 	{
 		destruir = true;
 	}

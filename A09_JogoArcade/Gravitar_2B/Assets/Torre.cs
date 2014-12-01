@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Torre : MonoBehaviour {
+public class Torre : MonoBehaviour
+{
 
 	public GameObject alvo;
 	public int pontos;
@@ -12,12 +13,19 @@ public class Torre : MonoBehaviour {
 	private bool destruir;
 	private float timerTiro;
 	
-	void Update () {
+	void Update()
+	{
+	
+		if (alvo == null)
+		{
+			return;
+		}
+	
 		Vector2 mira = alvo.transform.position - transform.position;
 		transform.right = mira;
 	
 		timerTiro += Time.deltaTime;
-		if(timerTiro >= freqTiro) 
+		if (timerTiro >= freqTiro)
 		{
 			timerTiro = 0;
 			GameObject bala = Instantiate(
@@ -29,15 +37,15 @@ public class Torre : MonoBehaviour {
 		}	
 	}
 	
-	void LateUpdate () 
+	void LateUpdate()
 	{
-		if(destruir) 
+		if (destruir)
 		{
 			Destroy(this.gameObject);
 		}
 	}
 	
-	void OnCollisionEnter2D (Collision2D colisao)
+	void OnCollisionEnter2D(Collision2D colisao)
 	{
 		destruir = true;
 		Nave.pontos += pontos;
