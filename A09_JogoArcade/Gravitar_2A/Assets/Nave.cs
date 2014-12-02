@@ -5,10 +5,10 @@ public class Nave : MonoBehaviour
 {
 	public static int vidas = 3;
 	public static int pontos = 0;
+	public static int combustivel = 500;
 
 	public float velocidadeRotacao;
 	public float forcaFoguete;
-	public int combustivel;
 	public int taxaConsumo;
 
 	public GameObject prefabBala;
@@ -16,6 +16,8 @@ public class Nave : MonoBehaviour
 
 	private float giro;
 	private bool fogueteLigado;
+
+	private bool morri;
 
 	void Update()
 	{
@@ -56,6 +58,21 @@ public class Nave : MonoBehaviour
 	{
 		vidas--;
 		print("vidas: " + vidas);
-		Destroy(this.gameObject);
+		morri = true;
+		if (vidas == 0)
+		{
+			Arbitro.TerminarJogo();
+		} else
+		{
+			Arbitro.RecarregarFase();
+		}
+	}
+
+	void LateUpdate()
+	{
+		if (morri)
+		{
+			Destroy(this.gameObject);
+		}
 	}
 }
