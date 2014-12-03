@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/MapaFases.unity
+  - enabled: 1
     path: Assets/Fase01.unity
   - enabled: 1
     path: Assets/Fase02.unity
