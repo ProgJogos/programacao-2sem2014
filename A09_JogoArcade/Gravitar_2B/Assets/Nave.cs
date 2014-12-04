@@ -9,7 +9,7 @@ public class Nave : MonoBehaviour
 	public float forcaFoguete;
 	public static int pontos = 0;
 	public float velTiro;
-	public static int combustivel;
+	public static int combustivel = 1000;
 	public float velGiro;
 	public int taxaConsumo;
 	public GameObject prefabBala;

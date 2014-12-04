@@ -9,8 +9,19 @@ public class Fronteira : MonoBehaviour
 	{
 		if (outro.gameObject.layer == LayerMask.NameToLayer("Jogador"))
 		{
-			// mudar de fase
-			Application.LoadLevel(fase);
+			// mudar de fase quando estah no mapa de fases
+			if(Arbitro.faseAtual == null) {
+				Arbitro.CarregarFase(fase);	
+			}
+			// sair da fase dentro de uma fase normal
+			else {
+				GameObject[] inimigos = 
+					GameObject.FindGameObjectsWithTag("Inimigo");
+				if(inimigos.Length == 0) {
+					Arbitro.PassarDeFase();
+				}
+				Arbitro.CarregarFase("MapaFases");
+			}
 		}
 	}
 }
